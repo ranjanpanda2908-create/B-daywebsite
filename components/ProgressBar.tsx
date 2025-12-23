@@ -1,0 +1,22 @@
+
+import React from 'react';
+
+interface ProgressBarProps {
+    currentStep: number;
+    totalSteps: number;
+}
+
+export const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep, totalSteps }) => {
+    const progressPercentage = ((currentStep) / (totalSteps - 1)) * 100;
+
+    return (
+        <div className="absolute top-8 w-11/12 max-w-md mx-auto">
+            <div className="w-full bg-white/10 backdrop-blur-sm rounded-full h-1.5">
+                <div 
+                    className="bg-gradient-to-r from-pink-500 to-red-500 h-1.5 rounded-full transition-all duration-500 ease-out"
+                    style={{ width: `${progressPercentage}%` }}
+                ></div>
+            </div>
+        </div>
+    );
+};
